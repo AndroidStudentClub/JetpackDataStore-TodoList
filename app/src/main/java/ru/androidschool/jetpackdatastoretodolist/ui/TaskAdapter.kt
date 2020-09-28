@@ -39,6 +39,8 @@ class TaskAdapter(
                     textParams.first
                 )
             )
+
+            containerView.status_checkbox.isChecked = task.completed
         }
     }
 
