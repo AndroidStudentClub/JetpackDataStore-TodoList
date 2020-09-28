@@ -1,43 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/tools"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:paddingHorizontal="@dimen/row_item_margin_horizontal"
-    android:paddingVertical="@dimen/row_item_margin_vertical"
-    tools:ignore="UnusedAttribute">
+    android:id="@+id/card_layout"
+    android:layout_width="wrap_content"
+    android:layout_height="100dp"
+    android:layout_marginLeft="16dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginRight="16dp"
+    android:layout_marginBottom="8dp"
+    card_view:cardElevation="9dp"
+    card_view:cardUseCompatPadding="true">
 
-    <TextView
-        android:id="@+id/task"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:textColor="@color/black"
-        android:textSize="@dimen/task_size"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="android-architecture" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/priority"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:textSize="@dimen/task_details_size"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/task"
-        tools:text="priority" />
+        <LinearLayout
+            android:id="@+id/todo_container"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:background="@color/white"
+            android:orientation="horizontal"
+            android:weightSum="1">
 
-    <TextView
-        android:id="@+id/deadline"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:drawablePadding="4dp"
-        android:textSize="@dimen/task_details_size"
-        app:drawableStartCompat="@drawable/ic_calendar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/priority"
-        tools:text="2020-05-06" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/task"
+                style="@style/HeaderStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="16dp"
+                android:layout_weight="0.9"
+                android:ellipsize="end"
+                android:gravity="center_vertical"
+                android:maxLines="2"
+                android:padding="8dp"
+                tools:text="Buy a ticket" />
+
+            <CheckBox
+                android:id="@+id/status_checkbox"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="16dp"
+                android:layout_weight="0.1"
+                android:buttonTint="@color/colorAccent" />
+        </LinearLayout>
+
+        <View
+            android:id="@+id/category_marker"
+            android:layout_width="6dp"
+            android:layout_height="match_parent"
+            android:background="@color/red" />
+
+        <TextView
+            android:id="@+id/deadline"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/todo_container"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="16dp"
+            android:drawablePadding="4dp"
+            android:textSize="@dimen/task_details_size"
+            app:drawableStartCompat="@drawable/ic_calendar"
+            tools:text="2020-05-06" />
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

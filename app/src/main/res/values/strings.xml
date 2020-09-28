@@ -13,7 +13,6 @@
 
     <string name="priority">Приоритет</string>
     <string name="deadline">Дедлайн</string>
-    <string name="priority_value">Приоритет %s</string>
 
     <string name="high">Высокий</string>
     <string name="normal">Средний</string>

@@ -37,7 +37,7 @@ object MockTasksRepository {
                 priority = TaskPriority.NORMAL
             ),
             Task(
-                name = "Почиать про Kotlin",
+                name = "Почитать про Kotlin",
                 deadline = simpleDateFormat.parse("2020-04-03")!!,
                 priority = TaskPriority.HIGH
             ),

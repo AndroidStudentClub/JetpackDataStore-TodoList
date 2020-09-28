@@ -26,7 +26,6 @@ class TaskAdapter(
         fun bind(task: Task) {
             containerView.task.text = task.name
             containerView.deadline.text = dateFormat.format(task.deadline)
-            containerView.priority.text = task.priority.name
 
             // set the priority color based on the task priority
             val textParams = when (task.priority) {
@@ -34,18 +33,12 @@ class TaskAdapter(
                 TaskPriority.NORMAL -> R.color.yellow to R.string.normal
                 TaskPriority.LOW -> R.color.green to R.string.low
             }
-            containerView.priority.setTextColor(
+            containerView.category_marker.setBackgroundColor(
                 ContextCompat.getColor(
                     itemView.context,
                     textParams.first
                 )
             )
-
-            containerView.priority.text = itemView.context.resources.getString(
-                R.string.priority_value,
-                containerView.context.getString(textParams.second)
-            )
-
         }
     }
 
